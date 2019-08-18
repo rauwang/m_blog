@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs">
+    {if isset($tabs)}
+    {foreach $tabs as $tab => $url}
+    {if isset($activeTab) and ($tab == $activeTab)}
+    <li class="active"><a href="{$url}">{$tab}</a></li>
+    {else /}
+    <li><a href="{$url}">{$tab}</a></li>
+    {/if}
+    {/foreach}
+    {/if}
+</ul>

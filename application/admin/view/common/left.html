@@ -1,0 +1,7 @@
+{foreach $menu as $name => $url}
+    {if (:isset($label) and ($name == $label)}
+    <a class="list-group-item active" href="{$url}">{$name}</a>
+    {else /}
+    <a class="list-group-item" href="{$url}">{$name}</a>
+    {/if}
+{/foreach}

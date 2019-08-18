@@ -1,0 +1,46 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Blog</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="nav navbar-nav">
+                <li><a href="/admin">首页</a></li>
+                {foreach $navs as $name=>$list}
+                <li class="dropdown">
+                    {if (:is_array($list)}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{$name} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {php} $divider = 0; {/php}
+                        {foreach $list as $val}
+                            {if ($divider > 0)} <li role="separator" class="divider"></li> {else /} {php} $divider = 1; {/php} {/if}
+                            {foreach $val as $_name=>$_url}
+                            <li><a href="{$_url}">{$_name}</a></li>
+                            {/foreach}
+                        {/foreach}
+                    </ul>
+                    {elseif ($url = $list) /}
+                    <a href="{$url}">{$name}</a>
+                    {/if}
+                </li>
+                {/foreach}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{:session('user.username')}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">个人信息</a></li>
+                        <li><a href="#">登陆日志</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
