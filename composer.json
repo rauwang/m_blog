@@ -15,6 +15,5 @@
         "think-path": "thinkphp"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.2"
     }
 }
