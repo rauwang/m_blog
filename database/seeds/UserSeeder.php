@@ -18,7 +18,6 @@ class UserSeeder extends Seeder
             $user = new \app\admin\model\User();
             $this->insert('user', [
                 ['username' => 'admin', 'password' => $user->formatPassword('admin')],
-                ['username' => 'test', 'password' => $user->formatPassword('test123')],
             ]);
         }
     }
